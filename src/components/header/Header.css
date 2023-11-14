@@ -1,0 +1,204 @@
+.header {
+    width: 100%;
+    height: 70px;
+    background-color: #fff;
+}
+
+.container1 {
+    width: 100%;
+    height: 100%;
+    padding: 0 2%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main_logo_header {
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.button_cotolog_heder {
+    width: 170px;
+    height: 40px;
+    border-radius: 7px;
+    background-color: #ffbe1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    gap: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.search {
+    width: 48%;
+    height: 40px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 7px;
+    border: 2px solid #ffbe1f;
+    padding: 0 0 0 1.4%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.search>input {
+    width: 80%;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    outline: none;
+}
+
+.search_icons {
+    width: 13%;
+    height: 100%;
+    background-color: #ffbe1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search_icons>svg {
+    font-size: 20px;
+    color: #444;
+}
+
+.savat_link,
+.sevimlilar_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.savat_link:hover>svg,
+.sevimlilar_link:hover>svg {
+    color: #ffbe1f;
+}
+
+.savat_link>svg,
+.sevimlilar_link>svg {
+    font-size: 21px;
+}
+
+.savat_link>p,
+.sevimlilar_link>p {
+    font-size: 12px;
+}
+
+
+
+
+.main_kirish:hover {
+    background-color: #ffc01f3e;
+}
+
+.bottom_header{
+    width: 100%;
+    height: 60px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2%;
+    box-shadow: 0 0 4px #ddd;
+    display: none;
+}
+
+.savat_link1,
+.sevimlilar_link1,
+.mainLink1,
+.catalog_link1,
+.profil_link1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    color: #777;
+}
+
+.savat_link1:focus>svg,
+.sevimlilar_link1:focus>svg,
+.mainLink1:focus>svg,
+.catalog_link1:focus>svg,
+.profil_link1:focus>svg {
+    color: #ffbe1f;
+}
+
+.savat_link1>svg,
+.sevimlilar_link1>svg,
+.mainLink1>svg,
+.catalog_link1>svg,
+.profil_link1>svg  {
+    font-size: 24px;
+}
+
+.savat_link1>p,
+.sevimlilar_link1>p,
+.mainLink1>p,
+.catalog_link1>p,
+.profil_link1>p {
+    font-size: 12px;
+}
+
+
+.main_kirish {
+    width: 65px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 7px;
+    border: 2px solid #ffbe1f;
+    cursor: pointer;
+    transition: .2s;
+
+}
+
+@media screen and (max-width: 1050px) {
+.search {
+    width: 40%;
+}
+}
+
+@media screen and (max-width: 868px) {
+    .button_cotolog_heder>p {
+        display: none;
+    }
+
+    .button_cotolog_heder {
+        width: 40px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .search{
+        width: 100%;
+    }
+
+    .savat_link,
+    .sevimlilar_link,
+    .main_kirish,
+    .button_cotolog_heder,
+    .main_logo_header  {
+        
+        display: none;
+    }
+
+.bottom_header{
+    display: flex;
+
+    z-index: 1000;
+}
+}
