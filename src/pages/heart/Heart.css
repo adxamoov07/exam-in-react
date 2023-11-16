@@ -1,0 +1,37 @@
+.heart_main{
+    width: 100%;
+    height: 350px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.container6{
+    padding: 0 2%;
+}
+
+.heart_main>h2{
+    letter-spacing: 1px;
+    font-size: 25px;
+}
+.heart_main>p{
+    font-size: 15px;
+    color: #999;
+}
+.heart_main>button{
+    width: 129px;
+    height: 40px;
+    border-radius: 7px;
+    background-color: rgb(249, 180, 51);
+    transform: 1s;
+    font-weight: bold;
+    cursor: pointer;
+}
+.heart_main>button:hover{
+    background-color: rgba(255, 206, 115, 0.968);
+}

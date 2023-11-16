@@ -1,7 +1,13 @@
+
 .header {
     width: 100%;
     height: 70px;
     background-color: #fff;
+    z-index: 1000;
+    position: relative;
+    text-transform: capitalize;
+
+  
 }
 
 .container1 {
@@ -11,6 +17,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+   
+ 
 }
 
 .main_logo_header {
@@ -76,6 +84,8 @@
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
+    color: #333;
+    text-decoration: none;
 }
 
 .savat_link:hover>svg,
@@ -155,15 +165,132 @@
 
 
 .main_kirish {
-    width: 65px;
     height: 40px;
     background-color: #fff;
     border-radius: 7px;
     border: 2px solid #ffbe1f;
     cursor: pointer;
     transition: .2s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-transform: capitalize;
+    padding: 0 5px;
+    gap: 5px;
+    text-decoration: none;
+    color: #333;
 
 }
+
+*{
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+
+
+.main_kirish_1{
+    border-radius: 7px;
+    background-color: transparent;
+}
+
+.main_kirish> img{
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    text-transform: uppercase;
+}
+.login{
+    width: 100%;
+    height: 100vh;
+    background-color: #8c858566;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.login_item{
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login_item_header{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+
+}
+
+.login_item_header>svg{
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.inputs{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input_box{
+    width: 100%;
+    height: 50px;
+    border: 2px solid orange;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.input_box>input{
+    font-size: 16px;
+
+}
+
+.login_buuton{
+    width: 100%;
+    height: 50px;
+    background-color: rgb(255, 162, 0);
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.login_buuton1{
+    width: 100%;
+    height: 50px;
+    border: 2px solid #999;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+*{
+    border: none;
+    outline: none;
+}
+
+
+
+
+
+
 
 @media screen and (max-width: 1050px) {
 .search {
@@ -185,6 +312,7 @@
 
     .search{
         width: 100%;
+     
     }
 
     .savat_link,

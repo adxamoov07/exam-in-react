@@ -1,0 +1,73 @@
+.haridlar_main {
+    width: 100%;
+    height: 400px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.haridlar_main_left {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.haridlar_main_right {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 1.6;
+    font-weight: normal;
+}
+
+.haridlar_main_right>p {
+    font-size: 14px;
+    color: #999;
+}
+
+.haridlar_main_right>button {
+    width: 160px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: rgb(248, 177, 44);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+    .haridlar_main_right {
+        width: 45%;
+
+    }
+
+    .haridlar_main_left {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .haridlar_main {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+        padding: 40px 0;
+    }
+    .haridlar_main_right {
+        width: 100%;
+
+    }
+
+    .haridlar_main_left {
+        width: 100%;
+        
+  
+    }
+}

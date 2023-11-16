@@ -1,0 +1,31 @@
+.sharhlarMain{
+    width: 100%;
+    height: 350px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sharhlarMain_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.sharhlarMain_item_svg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sharhlarMain_item_svg>svg{
+    font-size: 22px;
+    color: #999;
+}

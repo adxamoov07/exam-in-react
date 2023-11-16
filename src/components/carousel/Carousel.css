@@ -3,9 +3,14 @@
 }
 
 
+.carousel_home{
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
 .container2{
     width: 100%;
     padding: 0 2%;
-    border: 10px;
 }
 
