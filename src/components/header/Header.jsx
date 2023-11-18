@@ -11,9 +11,14 @@ import { CiUser } from "react-icons/ci";
 import { HiMiniXMark } from "react-icons/hi2";
 import Profil from '../../pages/profil/Profil'
 import { Link } from 'react-router-dom'
+import { HiOutlineXMark } from "react-icons/hi2";
+import { katalogData } from '../../static/headerData'
 
 function Header() {
   const [openLogin, setOpenLogin] = useState(false);
+
+  const [openKatalogData, setOpenKatalogData] = useState(false);
+
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
@@ -39,6 +44,15 @@ function Header() {
 
   }
 
+
+  openKatalogData
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto")
+
+
+
+
+
   let textLogin = localStorage.getItem("kirish")
 
 
@@ -53,7 +67,7 @@ function Header() {
             <Link to={"/"}>
               <img className='main_logo_header' src={logo_main_header_img} alt="logo" />
             </Link>
-            <button className='button_cotolog_heder'> <FaBars /> <p>Каталог товаров</p></button>
+            <button onClick={() => setOpenKatalogData(!openKatalogData)} className='button_cotolog_heder'> {openKatalogData ? <HiOutlineXMark /> : <FaBars />} <p>Каталог товаров</p></button>
 
             <div className="search">
               <input type="search" placeholder='Tavarlarni izlash' />
@@ -109,6 +123,47 @@ function Header() {
 
           </div>
         </div>
+
+
+
+        <div className="container7">
+
+          {
+            openKatalogData && (
+              <div className="container_position">
+                <div className="catalog_wrapper">
+                  {katalogData.map((katalogItem, index) => (
+                    <div key={index} className="catalog_wrapper_item">
+
+                      <p>{katalogItem.title.titleName}</p>
+
+                      <div className="catalog_wrapper_item_section">
+
+                        <div className="catalog_wrapper_item_section_links">
+                          {katalogItem.collection.map((item, index) => (
+                            <div key={index}>
+                              <h4>{item.collectionItemName}</h4>
+                              <ul>
+                                {item.collectionItemLinks.map((link_item, index) => (
+                                  <li key={index}>
+                                    <Link to={"/"}>{link_item}</Link>
+                                  </li>
+                                ))}
+                              </ul>
+
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+            )
+          }
+        </div>
+
 
 
 

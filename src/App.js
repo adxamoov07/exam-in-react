@@ -10,6 +10,7 @@ import Cart from './pages/cart/Cart';
 function App() {
   return (
     <div className="App">
+
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/favorite' element={<Heart />} />
@@ -19,6 +20,7 @@ function App() {
           <Route path='/profil/sharhlar' element={<Sharhlar />} />
         </Route>
       </Routes>
+      
     </div>
   );
 }
