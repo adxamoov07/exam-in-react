@@ -58,7 +58,7 @@ function Cards({ productData, componentName }) {
                         }
 
 
-                        <Link to={`/product/${product.id}`} className="cards_main_item_top">
+                        <Link to={`/single-page/${product.id}`} className="cards_main_item_top">
                             <img src={product.images[0]} alt="img" />
                         </Link>
                         <p>{product.description.length > 50 ? product.description.slice(0, 50) + "..." : product.title}</p>

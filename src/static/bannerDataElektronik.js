@@ -3,7 +3,7 @@ const allData = [
         title: "Smartfon",
         description: "Смартфон Apple iPhone 15 Pro 128ГБ (e-sim / nano-sim), синий",
         price: 15500000 ,
-        images: ["https://minio.alifshop.uz/shop/products/i1zUXHFSvhOQ2NQapbelRjjps61shOj7GsTlBp75.webp", "https://minio.alifshop.uz/shop/products/kcQN7MXvf8yWg135PKH93HGnl5yFW20Nw1ndk2zD.webp", "https://minio.alifshop.uz/shop/products/9BmJCRlqnuGkxWcMKLG4lIJrLxM1AMsHgxRQxjIS.webp", "https://minio.alifshop.uz/shop/products/NdRMjobbuzVmoTetYyFItilXKcLGfmUtFHcd82UG.webp"],
+        images: ["https://minio.alifshop.uz/shop/products/i1zUXHFSvhOQ2NQapbelRjjps61shOj7GsTlBp75.webp", "https://minio.alifshop.uz/shop/products/kcQN7MXvf8yWg135PKH93HGnl5yFW20Nw1ndk2zD.webp", "https://minio.alifshop.uz/shop/products/9BmJCRlqnuGkxWcMKLG4lIJrLxM1AMsHgxRQxjIS.webp", "https://images.uzum.uz/cjdgo8rk9fqdtbu5tnhg/original.jpg", "https://images.uzum.uz/cjhgmc4jvf2i5uiugmg0/original.jpg"],
         type: "Elektronika",
         delivery: "1 kun, bepul",
         color: "black",

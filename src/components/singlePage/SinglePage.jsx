@@ -1,163 +1,144 @@
-import React, { useState } from 'react'
-// import { NavLink } from "react-router-dom";
-import './SinglePage.css'
-import {
-    AiFillStar,
-    //  AiOutlineHeart 
-} from 'react-icons/ai'
-import { SlBasket } from "react-icons/sl"
-import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
-// import { NavLink } from 'react-bootstrap'
-// import Header from '../header/Header'
-import { useParams } from 'react-router-dom'
+import React, { useState } from "react";
+import "./SinglePage.css";
+import { IoMdStar } from "react-icons/io";
+import { FaXmark } from "react-icons/fa6";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { Link, useParams } from "react-router-dom";
+import { CiHeart } from "react-icons/ci";
+import { FiShoppingCart } from "react-icons/fi";
+import { LiaTruckSolid } from "react-icons/lia";
+import { FiRefreshCw } from "react-icons/fi";
+import data from "../../static/bannerDataElektronik";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
+
+function SinglePage() {
+    const { id } = useParams();
+
+    const [addPrice, setAddPrice] = useState(0);
 
 
-import data from '../../static/bannerDataElektronik'
-import { BsHeartFill } from 'react-icons/bs';
-import { PiHeartThin } from 'react-icons/pi';
 
-function HomeProducts() {
-    let { id } = useParams()
-    const [imgIndex, setImgIndex] = useState(0)
 
-    let singleData = data?.find(i => i.id.toString() === id)
-    console.log(singleData)
 
-    let prices = (singleData?.price)
 
-    const [count, setcount] = useState(1)
-    function minus() {
-        setcount(count - 1)
-    }
-    function plus() {
-        setcount(count + 1)
-    }
+    const i = data.find((i) => i.id.toString() === id);
+    const [img, setImg] = useState(0);
 
-    let price = prices * count
-    const [addatHeart, setAddatHeart] = useState(false)
 
     return (
-        <div className='single_pages_parts'>
-            {/* <Header /> */}
-            <div className='homeproducts'>
-                <div className="homeproducts_boxs">
-                    <div className="homeproducts_boxs_left">
-                        <div className="homeproducts_boxs_left_carousel">
-                            <div className="homeproducts_boxs_left_carousel_left">
-                                {
-                                    singleData?.images?.map((img, index) =>
-                                        <div onClick={() => setImgIndex(index)} key={index} className="homeproducts_boxs_left_carousel_left_img">
-                                            <img src={img} alt={singleData?.title} title={singleData?.title} />
+        <div>
+            <Header />
+            <div className="container10">
+                <div className="single_page">
+                    <div className="single_header">
+                        <Link>
+                            <SlArrowLeft /> Tecno smartfonlari chegirmada
+                        </Link>
+                    </div>
+                    <div className="single_container">
+                        <div className="single_container_left_card">
+                            <div className="left_card_scroll_img">
+                                <div className="scroll_card">
+                                    {i.images.map((item, index) => (
+                                        <div
+                                            key={index}
+                                            onClick={() => setImg(index)}
+                                            className="scroll_item_img"
+                                        >
+                                            <img src={item} alt="" />
                                         </div>
-
-                                    )
-                                }
-
-                            </div>
-                            <div className="homeproducts_boxs_left_carousel_right">
-                                <div className="homeproducts_boxs_left_carousel_right_imgs">
-                                    <img src={singleData?.images[imgIndex]} alt="" />
+                                    ))}
                                 </div>
-
+                            </div>
+                            <div className="left_card_img_container">
+                                <img src={i.images[img]} alt="" />
+                            </div>
+                        </div>
+                        <div className="single_container_right_card">
+                            <div className="right_evaluation_header">
+                                <IoMdStar />
+                                <IoMdStar />
+                                <IoMdStar />
+                                <IoMdStar />
+                                <IoMdStar />
+                                <span>Baholanmagan</span>
+                            </div>
+                            <div className={i.cardPriceActions ? "card_container_item" : ""}>
+                                {i.cardPriceActions ? "-15%" : ""}
+                            </div>
+                            <div className="right_title_container">
+                                <h2>{i.description}</h2>
+                            </div>
+                            <div className="right_price_container">
+                                <div className="right_price_container_left_border">
+                                    <span>Muddatli to’lovga sotib olish</span>
+                                    <p>{addPrice} so'm/oyiga </p>
+                                </div>
+                                <div className="right_price_container_right_border">
+                                    <span>Narx</span>
+                                    <p className="red">
+                                        {i.price + " so'm"}
+                                    </p>
+                                    <s>{i.price * 1.3 + " so'm"}</s>
+                                </div>
+                            </div>
+                            <div className="right_month_number_container">
+                                <div className="month_container">
+                                    <button onClick={() => setAddPrice(Math.ceil(i.price / 3 + 30000))}>3 <p className="price3">oyga</p> </button>
+                                    <button onClick={() => setAddPrice(Math.ceil(i.price / 6 + 60000))}>6 <p className="price3">oyga</p> </button>
+                                    <button onClick={() => setAddPrice(Math.ceil(i.price / 12 + 120000))}>12 <p className="price3">oyga</p> </button>
+                                    <button onClick={() => setAddPrice(Math.ceil(i.price / 18 + 180000))}>18 <p className="price3">oyga</p> </button>
+                                    <button onClick={() => setAddPrice(Math.ceil(i.price / 24 + 240000))}>24 <p className="price3">oyga</p> </button>
+                                </div>
+                                <div className="month_number_btn_container">
+                                    <button>
+                                        <FiShoppingCart /> Savatga saqlash
+                                    </button>
+                                    <div className="heart_btn_container">
+                                        <CiHeart />
+                                    </div>
+                                </div>
+                                <div className="right_admin_container">
+                                    <span>Sotuvchi</span>
+                                    <Link>
+                                        JOYBOX
+                                        <button>
+                                            <IoMdStar /> 5
+                                        </button>
+                                    </Link>
+                                </div>
+                                <div className="right_delivery_container">
+                                    <div className="delivery_container_header">
+                                        <div className="delivery_container_title_border">
+                                            <LiaTruckSolid />
+                                            <span>Yetkazib berish</span>
+                                        </div>
+                                    </div>
+                                    <div className="delivery_container_text">
+                                        <p>Bepul yetkazib berish</p>
+                                        <span>
+                                            Yetkazib berish muddati: Toshkent bo'ylab 1 kun ichida.
+                                            Respublika bo'ylab 3 kungacha.
+                                        </span>
+                                    </div>
+                                    <div className="delivery_container_header">
+                                        <div className="refresh_container">
+                                            <FiRefreshCw />
+                                            <span>Tovarni qaytarish</span>
+                                        </div>
+                                        <SlArrowRight />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="homeproducts_boxs_right">
-                        <div className="homeproducts_boxs_right_header">
-                            <div className="homeproducts_boxs_right_header_text">
-                                <p><AiFillStar /> 4.9( 38 baho )  </p>
-                                <p>600 ta buyurtma</p>
-                            </div>
-                            <h4>
-                                {/* <AiOutlineHeart /> */}
-                                <button className='herat_changes' onClick={() => setAddatHeart(!addatHeart)}>
-                                    {addatHeart ? <BsHeartFill style={{ color: "#572bd1" }} className='heart_red' /> : <PiHeartThin />}
-                                </button>
-                                <span>{addatHeart ? "istaklarda" : "istaklarga"}</span>
-                            </h4>
-                        </div>
-                        <h2>{singleData?.description}</h2>
-                        <h3><span>{price} / birlik </span> <s>{price * 1.5}</s></h3>
-                        <p className='homeproducts_boxs_right_4 column_media'><span>Sotuvchi: </span>
-                            <span><a href="/">{singleData?.type}</a></span>
-                        </p>
-                        <p className='column_media'><span>Yetkazib berish: </span> <span>{singleData?.delivery}</span></p>
-                        <hr style={{ margin: "20px 0" }} />
-                        <p>Rang:</p>
-                        <div className="homeproducts_boxs_right_header_text_products_color">
-                            <div className="homeproducts_boxs_right_header_text_products_color_item">
 
-                                Umarxon Anasxonov, [18.11.2023 13:34]
-                            </div>
-                            <div style={{ background: "yellow" }} className="homeproducts_boxs_right_header_text_products_color_item">
-
-                            </div>
-                            <div style={{ background: "blue" }} className="homeproducts_boxs_right_header_text_products_color_item">
-
-                            </div>
-
-                        </div>
-                        <p style={{ margin: "20px 0  0 0 " }}>Kiyim o'chami:</p>
-                        <div className="homeproducts_boxs_right_header_text_products_olcham">
-                            <h3>XS</h3>
-                            <h3>S</h3>
-                            <h3>M</h3>
-                            <h3>L</h3>
-                            <h3>XL</h3>
-                            <h3>XXL</h3>
-                            <h3>XXXL</h3>
-                        </div>
-                        <p>Miqdori:</p>
-                        <div className="homeproducts_boxs_right_header_text_products_miqdori">
-                            <div className="homeproducts_boxs_right_header_text_products_miqdori_1">
-                                <button onClick={minus}><AiOutlineMinus className='AiOutlineMinus' /></button>
-                                <h3>{count}</h3>
-                                <button onClick={plus}><AiOutlinePlus className='AiOutlineMinus' /></button>
-                            </div>
-                            <p>Sotuvda 2183 dona bor</p>
-                        </div>
-                        <p className='display_none_p'>Narx:</p>
-                        <div className='homeproducts_boxs_right_header_text_products_prices'>
-                            <h2>{price}</h2>
-                            <s>{price * 1.5}</s>
-                            <i>Tug’ilgan kun</i>
-                        </div>
-                        <div className="homeproducts_boxs_right_header_text_products_select">
-                            <p><span>Oyiga {price / 10} so'mdan </span>  muddatli to'lov</p>
-                        </div>
-                        <div className="homeproducts_boxs_right_header_text_products_buttons">
-                            <button>Savatga qaytish</button>
-                            <button>Tugmani bosishda harit qilish</button>
-                        </div>
-                        <div className="homeproducts_boxs_right_header_text_products_user_indx">
-                            <p><SlBasket />  Bu haftada <span>134</span> kishi sotib oldi</p>
-                        </div>
-                    </div>
                 </div>
             </div>
-            <div className="sharx_page">
-                <div className="sharx_page_header1">
-                    <div className="sharx_page_header1_items">
-                        <a href="/">Mahsulot tavsifi</a>
-                    </div>
-                </div>
-                <div className="sharx_page_banner_pagess">
-                    <p>{singleData?.fullinfo}</p>
-                </div>
-            </div>
-            <div className="header_bottom_pages">
-                <div className='header_bottom_pages_price'>
-                    <p>Narx umumiy:</p>
-                    <p>{price} so'm</p>
-                </div>
-                <button className='herat_changes' onClick={() => setAddatHeart(!addatHeart)}>
-                    {addatHeart ? <BsHeartFill style={{ color: "#572bd1", fontSize: "22px" }} className='heart_red' /> : <PiHeartThin style={{ fontSize: "22px" }} />}
-                </button>
-                <button className='header_bottom_page_bottoms'>Savatga </button>
-            </div>
+            <Footer />
         </div>
-
-    )
+    );
 }
 
-export default HomeProducts
+export default SinglePage;

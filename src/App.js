@@ -6,6 +6,7 @@ import Profil from './pages/profil/Profil';
 import Haridlar from './components/haridlar/Haridlar';
 import Sharhlar from './components/sharhlar.css/Sharhlar';
 import Cart from './pages/cart/Cart';
+import SinglePage from './components/singlePage/SinglePage';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path='/profil/haridlar' element={<Haridlar />} />
           <Route path='/profil/sharhlar' element={<Sharhlar />} />
         </Route>
+        <Route path='/single-page/:id' element={<SinglePage />} />
       </Routes>
       
     </div>
