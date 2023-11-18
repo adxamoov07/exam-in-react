@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { ADD_TO_CART } from '../../redux/addToCart';
 import { Add_To_Heart } from '../../redux/addToHeart';
+import {TbShoppingBagPlus} from 'react-icons/tb'
 
 
 function Cards({ productData, componentName }) {
@@ -15,6 +16,8 @@ function Cards({ productData, componentName }) {
     const dispatch = useDispatch()
     const heartData = useSelector(s => s.addToHeart).map(i => i.id)
     const cartData = useSelector(s => s.addToCart).map(i => i.id)
+
+    
 
     // const heartData = localStorage.setItem("setProduct", product.id)
 
@@ -61,7 +64,28 @@ function Cards({ productData, componentName }) {
                         <p>{product.description.length > 50 ? product.description.slice(0, 50) + "..." : product.title}</p>
                         <div className='price_box_24'> dan {Math.ceil(product.price / 24)} so'm/oyga</div>
                         <span>{product.price + " so'm"}</span>
-                        <button onClick={() => addToCart(product)} className='cart_button'> <FaCartPlus />   Savatga</button>
+                        {
+                            cartData.some(i => i === product.id) ?
+                                <div className='cart_button1'>
+                                    <button className='cart_btn_minus' >
+                                        -
+                                    </button>
+                                    <p>
+                                        {product.quantity}
+                                    </p>
+
+
+
+                                    <button className='cart_btn_pulus' onClick={() => dispatch(ADD_TO_CART({ pro: product }))} >
+                                        +
+                                    </button>
+                                </div>
+                                :
+                                <button className='cart_button' onClick={() => addToCart(product)} >
+                                    <FaCartPlus className='shopicon' />
+                                    savatga
+                                </button>
+                        }
                     </div>
                 )
             }
