@@ -13,6 +13,8 @@ import Profil from '../../pages/profil/Profil'
 import { Link } from 'react-router-dom'
 import { HiOutlineXMark } from "react-icons/hi2";
 import { katalogData } from '../../static/headerData'
+import { useDispatch, useSelector } from 'react-redux'
+import data from '../../static/bannerDataElektronik'
 
 function Header() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -22,8 +24,21 @@ function Header() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
 
+  const dispatch = useDispatch()
+  const heartData = useSelector(s => s.addToHeart).map(i => i.id)
+  const cartData = useSelector(s => s.addToCart).map(i => i.id)
 
 
+  const [searchResult, setSearchResult] = useState(null)
+
+  function search(value) {
+    if (!value) {
+      return setSearchResult(null)
+    }
+    let result = data.filter(i => i.title.toLowerCase().includes(value.toLowerCase()))
+    setSearchResult(result)
+  }
+  console.log(searchResult);
 
   openLogin
     ? (document.body.style.overflow = "hidden")
@@ -69,20 +84,45 @@ function Header() {
             </Link>
             <button onClick={() => setOpenKatalogData(!openKatalogData)} className='button_cotolog_heder'> {openKatalogData ? <HiOutlineXMark /> : <FaBars />} <p>Каталог товаров</p></button>
 
+
+
+
+
+
+
+
             <div className="search">
-              <input type="search" placeholder='Tavarlarni izlash' />
+              <input type="search" placeholder='Tavarlarni izlash' onChange={(e) => search(e.target.value)} />
               <div className="search_icons">
                 <FaSearch />
               </div>
+              <div className="searchResult" style={{ display: searchResult?.length ? "flex" : "none" }} >
+                {
+                  searchResult?.map((item, index) =>
+                    <Link className='searchResult_items' to={`/single-page/${item.id}`} key={index} >{item.title}</Link>
+                  )
+                }
+              </div>
             </div>
+
+
+
+
+
+
+
+
+
 
             <Link to={"/cart"} className="savat_link">
               <SlBasketLoaded />
+              <div className={cartData.length ? "favorite_red1" : "favorite_none"}></div>
               <p>Savat</p>
             </Link>
 
             <Link to={"/favorite"} className="sevimlilar_link">
               <FaRegHeart />
+              <div className={heartData.length ? "favorite_red" : "favorite_none"}></div>
               <p>Sevimlilar</p>
             </Link>
 
@@ -196,6 +236,7 @@ function Header() {
           <div className="savat_link1">
             <Link className='savat_link1' to={"/cart"}>
               <SlBasketLoaded className='icon_1_1' />
+              <div className={cartData.length ? "favorite_red1" : "favorite_none"}></div>
               <p>Savat</p>
             </Link>
           </div>
@@ -203,6 +244,7 @@ function Header() {
           <div className="sevimlilar_link1">
             <Link className='sevimlilar_link1' to={"/favorite"}>
               <FaRegHeart />
+              <div className={heartData.length ? "favorite_red" : "favorite_none"}></div>
               <p>Sevimlilar</p>
             </Link>
           </div>

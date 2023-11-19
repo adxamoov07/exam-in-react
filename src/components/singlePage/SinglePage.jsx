@@ -11,6 +11,10 @@ import { FiRefreshCw } from "react-icons/fi";
 import data from "../../static/bannerDataElektronik";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { ADD_TO_CART } from '../../redux/addToCart';
+import { Add_To_Heart } from '../../redux/addToHeart';
 
 function SinglePage() {
     const { id } = useParams();
@@ -24,6 +28,11 @@ function SinglePage() {
 
     const i = data.find((i) => i.id.toString() === id);
     const [img, setImg] = useState(0);
+
+    const dispatch = useDispatch()
+    const heartData = useSelector(s => s.addToHeart).map(i => i.id)
+    const cartData = useSelector(s => s.addToCart).map(i => i.id)
+
 
 
     return (
@@ -95,8 +104,11 @@ function SinglePage() {
                                     <button>
                                         <FiShoppingCart /> Savatga saqlash
                                     </button>
-                                    <div className="heart_btn_container">
-                                        <CiHeart />
+                                    <div className="heart_btn_container" >
+                                        {
+                                            heartData.length ? <AiFillHeart/> : <AiOutlineHeart/>
+                                        }
+
                                     </div>
                                 </div>
                                 <div className="right_admin_container">

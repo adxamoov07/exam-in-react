@@ -64,6 +64,19 @@ const allData = [
         ]
     },
     {
+        title: "Smartfon",
+        description: "Смартфон Apple iPhone 15 Pro 128ГБ (e-sim / nano-sim), синий",
+        price: 15500000 ,
+        images: ["https://minio.alifshop.uz/shop/products/i1zUXHFSvhOQ2NQapbelRjjps61shOj7GsTlBp75.webp", "https://minio.alifshop.uz/shop/products/kcQN7MXvf8yWg135PKH93HGnl5yFW20Nw1ndk2zD.webp", "https://minio.alifshop.uz/shop/products/9BmJCRlqnuGkxWcMKLG4lIJrLxM1AMsHgxRQxjIS.webp", "https://images.uzum.uz/cjdgo8rk9fqdtbu5tnhg/original.jpg", "https://images.uzum.uz/cjhgmc4jvf2i5uiugmg0/original.jpg"],
+        type: "Elektronika",
+        delivery: "1 kun, bepul",
+        color: "black",
+        sizes: ["4/64GB, 2 SIM"],
+        fullinfo: [
+            "Rasmiy kafolat 1 yil. IMEI ro'yxatdan o'tgan", "Tecno Spark Go 2023 6.6 dyuymli 720 x 1600 pikselli ekrani IPS texnologiyasi bo‘yicha ishlab chiqarilgan", "Tecno Spark Go 2023 asosiy kamerasi 13+2 Mp piksellar soniga va f/1.9 diafragmaga ega, bu har qanday syujetlar uchun yetarli hisoblanadi. Old selfi kamerasi - 5 Mp", "Katta 5000 mAs batareyasi smartfonning standart rejimda bir kun ishlashini va yuqori yukmalarda 12 soat ishlashini ta'minlaydi", "To‘plamda quvvatlovchi qurilmasi, himoya g‘ilofi va yo‘riqnomasi bor. Himoya oynasi ishlab chiqaruvchi tomonidan o'rnatilgan", "10 Vt tez quvvatlanish", "2 Nano-SIM kartalar", "4 Gb operativ xotira, 64 Gb asosiy xotira, xotira hajmini oshirish uchun microSD uyasi mavjud"
+        ]
+    },  
+    {
         title: "Planshet",
         description: "Planshet va telefonlar metall sirtli",
         price: 49000,
@@ -112,6 +125,19 @@ const allData = [
         fullinfo: ["O'rnatilgan o'yinlar soni: 10227", "Interfeys: Bluetooth; Wi-fi; Simsiz", "O'yin konsollari seriyasi: PlayStation, Sega, Nintendo, Dendy", "O'yin formati bilan mos keladi: MAME, PS1, GB, GBA, GBC, MD, SFC, FC va ATARI", "Xotira: 64 Gb", "Qo'llab-quvvatlanadigan maksimal ruxsat: 3840 x 2160 4K UHD"
         ]
     },
+    {
+        title: "Smartfon",
+        description: "Смартфон Apple iPhone 15 Pro 128ГБ (e-sim / nano-sim), синий",
+        price: 15500000 ,
+        images: ["https://minio.alifshop.uz/shop/products/i1zUXHFSvhOQ2NQapbelRjjps61shOj7GsTlBp75.webp", "https://minio.alifshop.uz/shop/products/kcQN7MXvf8yWg135PKH93HGnl5yFW20Nw1ndk2zD.webp", "https://minio.alifshop.uz/shop/products/9BmJCRlqnuGkxWcMKLG4lIJrLxM1AMsHgxRQxjIS.webp", "https://images.uzum.uz/cjdgo8rk9fqdtbu5tnhg/original.jpg", "https://images.uzum.uz/cjhgmc4jvf2i5uiugmg0/original.jpg"],
+        type: "Elektronika",
+        delivery: "1 kun, bepul",
+        color: "black",
+        sizes: ["4/64GB, 2 SIM"],
+        fullinfo: [
+            "Rasmiy kafolat 1 yil. IMEI ro'yxatdan o'tgan", "Tecno Spark Go 2023 6.6 dyuymli 720 x 1600 pikselli ekrani IPS texnologiyasi bo‘yicha ishlab chiqarilgan", "Tecno Spark Go 2023 asosiy kamerasi 13+2 Mp piksellar soniga va f/1.9 diafragmaga ega, bu har qanday syujetlar uchun yetarli hisoblanadi. Old selfi kamerasi - 5 Mp", "Katta 5000 mAs batareyasi smartfonning standart rejimda bir kun ishlashini va yuqori yukmalarda 12 soat ishlashini ta'minlaydi", "To‘plamda quvvatlovchi qurilmasi, himoya g‘ilofi va yo‘riqnomasi bor. Himoya oynasi ishlab chiqaruvchi tomonidan o'rnatilgan", "10 Vt tez quvvatlanish", "2 Nano-SIM kartalar", "4 Gb operativ xotira, 64 Gb asosiy xotira, xotira hajmini oshirish uchun microSD uyasi mavjud"
+        ]
+    },  
     {
         title: "Blootooth naushnik",
         description: "Simsiz Bluetooth quloqchinlari P47",

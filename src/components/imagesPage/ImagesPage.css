@@ -1,0 +1,32 @@
+.imagesPage {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 10px;
+}
+
+.container9 {
+    background-color: #fff;
+    padding: 0 2%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    overflow-x: scroll;
+
+}
+
+@media screen and (max-width: 1150px) {
+    .container9 {
+        width: 1000px;
+    }
+}
+
+.container9>img {
+    width: 250px;
+    height: 140px;
+    border-radius: 10px;
+
+}

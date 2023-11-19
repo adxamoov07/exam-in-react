@@ -5,6 +5,10 @@
   margin: 0 auto;
 } */
 /* header bottom */
+
+.App{
+  padding: 0 10px 10px 10px;
+}
 .container {
   max-width: 1150px;
   width: 100%;
@@ -64,3 +68,11 @@
   margin: 0 auto;
   background-color: #fff;
 }
+/* imgPage */
+.container9 {
+  max-width: 1150px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+

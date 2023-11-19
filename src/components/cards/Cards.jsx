@@ -19,26 +19,9 @@ function Cards({ productData, componentName }) {
 
     
 
-    // const heartData = localStorage.setItem("setProduct", product.id)
-
-    // const [openHeart, setOpenHeart] = useState(false);
-
-    // function openHeartSetLocalStorage() {
-    //     setOpenHeart(false)
-    // }
-
-    // function lockHeartSetLocalStorage() {
-    //     setOpenHeart(true)
-    // }
-
-
     function addToCart(item) {
         dispatch(ADD_TO_CART({ pro: item }))
-        // toast.success("You have successfully registered", {
-        //     position: toast.POSITION.TOP_CENTER,
-        //     autoClose: 1500,
-        //     hideProgressBar: true,
-        // })
+      
     }
 
 
@@ -47,9 +30,7 @@ function Cards({ productData, componentName }) {
             {
                 productData?.map((product, index) =>
                     <div key={index} className="cards_main_item">
-                        {/* {
-                            openHeart ? <AiFillHeart onClick={openHeartSetLocalStorage} className='heart_products' /> : <AiOutlineHeart onClick={lockHeartSetLocalStorage} className='heart_products1' />
-                        } */}
+                      
                         {
                             heartData.some(i => i === product.id) ?
                                 <AiFillHeart className='heart_products' onClick={() => dispatch(Add_To_Heart({ pro: product }))} />
@@ -71,6 +52,7 @@ function Cards({ productData, componentName }) {
                                         -
                                     </button>
                                     <p>
+                                        1
                                         {product.quantity}
                                     </p>
 
