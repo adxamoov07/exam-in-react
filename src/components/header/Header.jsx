@@ -15,6 +15,8 @@ import { HiOutlineXMark } from "react-icons/hi2";
 import { katalogData } from '../../static/headerData'
 import { useDispatch, useSelector } from 'react-redux'
 import data from '../../static/bannerDataElektronik'
+import { signInWithPhoneNumber, RecaptchaVerifier } from 'firebase/auth'
+import { auth } from '../../firebase'
 
 function Header() {
   const [openLogin, setOpenLogin] = useState(false);
@@ -22,7 +24,7 @@ function Header() {
   const [openKatalogData, setOpenKatalogData] = useState(false);
 
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const dispatch = useDispatch()
   const heartData = useSelector(s => s.addToHeart).map(i => i.id)
@@ -52,10 +54,41 @@ function Header() {
     setOpenLogin(false)
   }
 
-  function addLogin() {
-    localStorage.setItem("kirish", name)
-    localStorage.setItem("telefon", number)
-    alert("MUVAFFAQIYATLI O'TDINGIZ")
+  function addLogin(e) {
+    e.preventDefault()
+
+
+    let reacptcha = new RecaptchaVerifier(auth, 'recaptcha-container', {
+      'callback': (responce) => {
+        console.log("prepared phone auth proces");
+      }
+    })
+
+
+    signInWithPhoneNumber(auth, phone, reacptcha)
+      .then((e) => {
+        let code = prompt("AlifShop Tasdiqlash Kodni Kiriting!")
+        if (code === null) {
+          alert("kod kiritilmadi")
+        }
+        else {
+          e.confirm(code)
+            .then(user => {
+              console.log(user)
+              localStorage.setItem("kirish", name)
+              localStorage.setItem("telefon", phone)
+              window.location.reload()
+
+            })
+            .catch(err => {
+              console.log(err)
+              alert("Notug'ri code kiritildi!")
+              window.location.reload()
+            })
+        }
+      })
+
+
 
   }
 
@@ -72,6 +105,9 @@ function Header() {
 
 
 
+
+
+
   return (
     <div>
       <HeaderTop />
@@ -83,13 +119,6 @@ function Header() {
               <img className='main_logo_header' src={logo_main_header_img} alt="logo" />
             </Link>
             <button onClick={() => setOpenKatalogData(!openKatalogData)} className='button_cotolog_heder'> {openKatalogData ? <HiOutlineXMark /> : <FaBars />} <p>Каталог товаров</p></button>
-
-
-
-
-
-
-
 
             <div className="search">
               <input type="search" placeholder='Tavarlarni izlash' onChange={(e) => search(e.target.value)} />
@@ -105,15 +134,6 @@ function Header() {
               </div>
             </div>
 
-
-
-
-
-
-
-
-
-
             <Link to={"/cart"} className="savat_link">
               <SlBasketLoaded />
               <div className={cartData.length ? "favorite_red1" : "favorite_none"}></div>
@@ -125,7 +145,6 @@ function Header() {
               <div className={heartData.length ? "favorite_red" : "favorite_none"}></div>
               <p>Sevimlilar</p>
             </Link>
-
 
             <button className='main_kirish_1' onClick={openLoginFunc}>
               <Link to={textLogin ? "/profil" : "/"} className='main_kirish'>
@@ -148,9 +167,9 @@ function Header() {
                     </div>
 
                     <div className='input_box'>
-                      <p>+998:</p>
-                      <input onChange={(e) => setNumber(e.target.value)} type="number" required />
+                      <input placeholder='+998 XX XXX XX XX' type="tel" onChange={(e) => setPhone(e.target.value)} value={phone} />
                     </div>
+                    <div id="recaptcha-container"></div>
                     <button type='submit' className='login_buuton'>Davom Etish</button>
                     <button onClick={closeLogin} className='login_buuton1'>Bekor Qilish</button>
                   </div>

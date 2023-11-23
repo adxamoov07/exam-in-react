@@ -426,7 +426,7 @@
 
 .login_item{
     width: 400px;
-    height: 400px;
+    height: auto;
     background-color: #fff;
     border-radius: 10px;
     padding: 20px;
